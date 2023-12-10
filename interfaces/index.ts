@@ -10,6 +10,7 @@ export interface Schedule {
 }
 
 export interface Task {
+  id: string;
   description: string;
   status: string;
 }

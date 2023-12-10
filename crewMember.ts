@@ -10,4 +10,16 @@ export default class CrewMember {
   public setTask(task: Task): void {
     this.tasks.push(task);
   }
+
+  public getTask(id: string): Task | undefined {
+    return this.tasks.find((task) => (task.id = id));
+  }
+
+  public changeTaskStatus(id: string, status: string): void {
+    const task = this.getTask(id);
+
+    if (!task) return;
+
+    task.status = status;
+  }
 }

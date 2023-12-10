@@ -6,10 +6,13 @@ import Traveler from "./traveler";
 
 const cruiseCompany = new CruiseCompany();
 
-const crewMember = new CrewMember("Levani", CrewMemberType.Captain, []);
+const levaniCaptain = new CrewMember("Levani", CrewMemberType.Captain, []);
+levaniCaptain.setTask({ id: "1", description: "test", status: "In Proggres" });
+levaniCaptain.changeTaskStatus("1", "Done");
+console.log(levaniCaptain.getTask("1"));
 
 const ship = new Ship();
-ship.setMembers([crewMember]);
+ship.setMembers([levaniCaptain]);
 ship.setCabbins();
 
 cruiseCompany.createSchedule(ship, {
@@ -37,6 +40,6 @@ cruiseCompany.createSchedule(ship, {
 
 const traveler = new Traveler("Giorgi", ship);
 traveler.chooseCabinType(CabinType.Business);
-
+console.log(traveler.getSchedule());
 traveler.applyDiscountCode("ABC");
 traveler.makePayment();
