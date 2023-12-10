@@ -15,12 +15,17 @@ export default class Ship {
     this.entertainmentActivities.push(activity);
   }
 
-  public setCabbins(): void {
+  public setCabbins(
+    quantityOfEconomy: number,
+    quantityOfBusiness: number,
+    quantityOfLuxury: number
+  ): void {
     this.cabins.push(
-      CabinFactory.createCabin(CabinType.Economy),
-      CabinFactory.createCabin(CabinType.Business),
-      CabinFactory.createCabin(CabinType.Luxury)
+      CabinFactory.createCabin(CabinType.Economy, quantityOfEconomy),
+      CabinFactory.createCabin(CabinType.Business, quantityOfBusiness),
+      CabinFactory.createCabin(CabinType.Luxury, quantityOfLuxury)
     );
+    console.log(this.cabins);
   }
 
   public getNumberOfCabins(): number {
@@ -39,7 +44,7 @@ export default class Ship {
     return this.cabins.find((cabin) => cabin.type === cabinType);
   }
 
-  public setMembers(members: CrewMember[]): void {
-    this.crewMembers = members;
+  public setMember(member: CrewMember): void {
+    this.crewMembers.push(member);
   }
 }

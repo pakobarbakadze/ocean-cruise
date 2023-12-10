@@ -12,8 +12,8 @@ levaniCaptain.changeTaskStatus("1", "Done");
 console.log(levaniCaptain.getTask("1"));
 
 const ship = new Ship();
-ship.setMembers([levaniCaptain]);
-ship.setCabbins();
+ship.setMember(levaniCaptain);
+ship.setCabbins(5, 5, 5);
 
 cruiseCompany.createSchedule(ship, {
   locations: [
@@ -43,3 +43,6 @@ traveler.chooseCabinType(CabinType.Business);
 console.log(traveler.getSchedule());
 traveler.applyDiscountCode("ABC");
 traveler.makePayment();
+
+cruiseCompany.cancelSchedule(ship);
+console.log(ship.getSchedule());
