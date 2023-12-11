@@ -2,11 +2,13 @@ import { Cabin } from "./cabin";
 import { CabinFactory } from "./cabinFactory";
 import CrewMember from "./crewMember";
 import { CabinType, EntertainmentActivity, Schedule } from "./interfaces";
+import Traveler from "./traveler";
 
 export default class Ship {
   private cabins: Cabin[] = [];
   private entertainmentActivities: EntertainmentActivity[] = [];
   private schedule: Schedule = { locations: [] };
+  private travelers: Traveler[] = [];
   private crewMembers: CrewMember[] = [];
 
   constructor() {}
@@ -46,5 +48,13 @@ export default class Ship {
 
   public setMember(member: CrewMember): void {
     this.crewMembers.push(member);
+  }
+
+  public setTraveler(traveler: Traveler): void {
+    this.travelers.push(traveler);
+  }
+
+  public getTravelers(): Traveler[] {
+    return this.travelers;
   }
 }

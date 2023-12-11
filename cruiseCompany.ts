@@ -9,4 +9,12 @@ export class CruiseCompany {
   public cancelSchedule(ship: Ship): void {
     ship.setSchedule({ locations: [] });
   }
+
+  public sendNotifications(ship: Ship): void {
+    const travelers = ship.getTravelers();
+    travelers.forEach((traveler) => {
+      //Send notification here
+      console.log(`Sent notification to: ${traveler.getName()}`);
+    });
+  }
 }

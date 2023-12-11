@@ -40,9 +40,13 @@ cruiseCompany.createSchedule(ship, {
 
 const traveler = new Traveler("Giorgi", ship);
 traveler.chooseCabinType(CabinType.Business);
+ship.setTraveler(traveler);
 console.log(traveler.getSchedule());
 traveler.applyDiscountCode("ABC");
-traveler.makePayment();
+traveler.makePayment(250);
+console.log(traveler.getBalance());
+
+cruiseCompany.sendNotifications(ship);
 
 cruiseCompany.cancelSchedule(ship);
 console.log(ship.getSchedule());
