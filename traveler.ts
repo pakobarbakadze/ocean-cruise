@@ -1,4 +1,5 @@
-import { CabinType, Schedule } from "./interfaces";
+import { CabinType } from "./enums";
+import { Schedule } from "./interfaces";
 import Ship from "./ship";
 
 export default class Traveler {

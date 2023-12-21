@@ -1,5 +1,5 @@
 import { BusinessCabin, Cabin, EconomyCabin, LuxuryCabin } from "./cabin";
-import { CabinType } from "./interfaces";
+import { CabinType } from "./enums";
 
 export class CabinFactory {
   public static createCabin(c: CabinType, quantity: number): Cabin {

@@ -1,6 +1,6 @@
 import CrewMember from "./crewMember";
 import { CruiseCompany } from "./cruiseCompany";
-import { CabinType, CrewMemberType } from "./interfaces";
+import { CabinType, CrewMemberType } from "./enums";
 import Ship from "./ship";
 import Traveler from "./traveler";
 

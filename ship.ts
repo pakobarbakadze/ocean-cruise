@@ -1,7 +1,8 @@
 import { Cabin } from "./cabin";
 import { CabinFactory } from "./cabinFactory";
 import CrewMember from "./crewMember";
-import { CabinType, EntertainmentActivity, Schedule } from "./interfaces";
+import { CabinType } from "./enums";
+import { EntertainmentActivity, Schedule } from "./interfaces";
 import Traveler from "./traveler";
 
 export default class Ship {

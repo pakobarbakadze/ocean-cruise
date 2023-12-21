@@ -1,4 +1,5 @@
-import { CrewMemberType, Task } from "./interfaces";
+import { CrewMemberType } from "./enums";
+import { Task } from "./interfaces";
 
 export default class CrewMember {
   constructor(

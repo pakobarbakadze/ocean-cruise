@@ -1,4 +1,5 @@
-import { CabinType, EntertainmentActivity } from "./interfaces";
+import { CabinType } from "./enums";
+import { EntertainmentActivity } from "./interfaces";
 
 export class Cabin {
   constructor(public type: CabinType, public numberOfCabins: number) {}
