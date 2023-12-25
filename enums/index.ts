@@ -1,12 +1,4 @@
-export enum CrewMemberType {
-  Captain = "Captain",
-  Mechanic = "Mechanic",
-  Cook = "Cook",
-  Cleaner = "Cleaner",
-}
+import { CabinType } from "./cabin.type";
+import { CrewMemberType } from "./crew-member.type";
 
-export enum CabinType {
-  Economy = "Economy",
-  Business = "Business",
-  Luxury = "Luxury",
-}
+export { CabinType, CrewMemberType };
