@@ -1,5 +1,5 @@
-import { CrewMemberType } from "./enums";
-import { Task } from "./interfaces";
+import { CrewMemberType } from "../enums";
+import Task from "./task";
 
 export default class CrewMember {
   constructor(
@@ -13,7 +13,7 @@ export default class CrewMember {
   }
 
   public getTask(id: string): Task | undefined {
-    return this.tasks.find((task) => (task.id = id));
+    return this.tasks.find((task) => task.getId() === id);
   }
 
   public changeTaskStatus(id: string, status: string): void {
@@ -21,6 +21,6 @@ export default class CrewMember {
 
     if (!task) return;
 
-    task.status = status;
+    task.setStatus(status);
   }
 }

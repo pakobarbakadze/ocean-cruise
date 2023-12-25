@@ -1,5 +1,6 @@
-import { CabinType } from "./enums";
-import { Schedule } from "./interfaces";
+import { CabinType } from "../enums";
+import { CalculatorService } from "../services/calculator.service";
+import Schedule from "./schedule";
 import Ship from "./ship";
 
 export default class Traveler {
@@ -12,10 +13,6 @@ export default class Traveler {
     this.selectedSchedule = ship.getSchedule();
   }
 
-  public getName(): string {
-    return this.name;
-  }
-
   public chooseCabinType(cabinType: CabinType): void {
     const cabin = this.ship.getCabinByType(cabinType);
 
@@ -24,12 +21,17 @@ export default class Traveler {
     this.selectedCabinType = cabin.type;
   }
 
+  public applyDiscountCode(code: string): void {
+    this.discountCode = code;
+  }
+
   public makePayment(amount: number): void {
     const cabin = this.ship.getCabinByType(this.selectedCabinType);
+    const calculator = new CalculatorService();
 
     if (!cabin) return console.log("You haven't delected cabin");
 
-    let cost = cabin.calculateTotalCost([]);
+    let cost = calculator.calculateTotalCost(cabin, []);
 
     if (this.discountCode) cost = cost - cost / 5;
 
@@ -43,8 +45,8 @@ export default class Traveler {
     return this.balance;
   }
 
-  public applyDiscountCode(code: string): void {
-    this.discountCode = code;
+  public getName(): string {
+    return this.name;
   }
 
   public getSchedule(): Schedule {

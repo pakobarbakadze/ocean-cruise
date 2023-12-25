@@ -1,14 +1,15 @@
-import { Cabin } from "./cabin";
-import { CabinFactory } from "./cabinFactory";
 import CrewMember from "./crewMember";
-import { CabinType } from "./enums";
-import { EntertainmentActivity, Schedule } from "./interfaces";
+import { CabinType } from "../enums";
+import { Cabin } from "./cabin/cabin";
+import CabinFactory from "./cabin/cabin-factory";
 import Traveler from "./traveler";
+import Schedule from "./schedule";
+import EntertainmentActivity from "./entertaintment-activity";
 
 export default class Ship {
   private cabins: Cabin[] = [];
   private entertainmentActivities: EntertainmentActivity[] = [];
-  private schedule: Schedule = { locations: [] };
+  private schedule: Schedule = new Schedule([]);
   private travelers: Traveler[] = [];
   private crewMembers: CrewMember[] = [];
 
@@ -16,6 +17,10 @@ export default class Ship {
 
   public addEntertainmentActivity(activity: EntertainmentActivity): void {
     this.entertainmentActivities.push(activity);
+  }
+
+  public getEntertainmentActivities(): EntertainmentActivity[] {
+    return this.entertainmentActivities;
   }
 
   public setCabbins(

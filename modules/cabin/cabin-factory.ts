@@ -1,10 +1,10 @@
 import { BusinessCabin, Cabin, EconomyCabin, LuxuryCabin } from "./cabin";
-import { CabinType } from "./enums";
+import { CabinType } from "../../enums";
 
-export class CabinFactory {
-  public static createCabin(c: CabinType, quantity: number): Cabin {
+export default class CabinFactory {
+  public static createCabin(cabinType: CabinType, quantity: number): Cabin {
     let cabin: Cabin;
-    switch (c) {
+    switch (cabinType) {
       case CabinType.Economy:
         cabin = new EconomyCabin(quantity);
         break;

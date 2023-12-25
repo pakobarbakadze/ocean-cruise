@@ -1,24 +1,10 @@
-import { CabinType } from "./enums";
-import { EntertainmentActivity } from "./interfaces";
+import { CabinType } from "../../enums";
 
 export class Cabin {
   constructor(public type: CabinType, public numberOfCabins: number) {}
 
-  public calculateTotalCost(activities: EntertainmentActivity[]): number {
-    const baseCost = this.getBaseCost();
-    const additionalFees = this.calculateAdditionalFees(activities);
-    return baseCost + additionalFees;
-  }
-
-  protected getBaseCost(): number {
+  public getBaseCost(): number {
     return 0;
-  }
-
-  private calculateAdditionalFees(activities: EntertainmentActivity[]): number {
-    return activities.reduce(
-      (total, activity) => total + (activity.price ?? 0),
-      0
-    );
   }
 }
 
