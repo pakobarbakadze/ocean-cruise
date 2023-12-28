@@ -13,9 +13,7 @@ export default class Ship {
   private travelers: Traveler[] = [];
   private crewMembers: CrewMember[] = [];
 
-  constructor() {}
-
-  public addEntertainmentActivity(activity: EntertainmentActivity): void {
+  public setEntertainmentActivity(activity: EntertainmentActivity): void {
     this.entertainmentActivities.push(activity);
   }
 

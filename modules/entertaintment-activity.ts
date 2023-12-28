@@ -6,8 +6,8 @@ export default class EntertainmentActivity {
     this.name = name;
   }
 
-  public getName(price: number) {
-    this.price = price;
+  public getName() {
+    return this.name;
   }
 
   public setName() {

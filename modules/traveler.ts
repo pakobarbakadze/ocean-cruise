@@ -13,18 +13,7 @@ export default class Traveler {
     this.selectedSchedule = ship.getSchedule();
   }
 
-  public chooseCabinType(cabinType: CabinType): void {
-    const cabin = this.ship.getCabinByType(cabinType);
-
-    if (!cabin) return console.log("This type of cabin doesn't exist");
-
-    this.selectedCabinType = cabin.type;
-  }
-
-  public applyDiscountCode(code: string): void {
-    this.discountCode = code;
-  }
-
+  // TODO
   public makePayment(amount: number): void {
     const cabin = this.ship.getCabinByType(this.selectedCabinType);
     const calculator = new CalculatorService();
@@ -39,6 +28,18 @@ export default class Traveler {
     this.balance = amount;
 
     console.log(`Paid ${cost}$`);
+  }
+
+  public setCabinType(cabinType: CabinType): void {
+    const cabin = this.ship.getCabinByType(cabinType);
+
+    if (!cabin) return console.log("This type of cabin doesn't exist");
+
+    this.selectedCabinType = cabin.type;
+  }
+
+  public setDiscountCode(code: string): void {
+    this.discountCode = code;
   }
 
   public getBalance(): number {
