@@ -6,11 +6,19 @@ export default class EntertainmentActivity {
     this.name = name;
   }
 
-  public setPrice(price: number) {
+  public getName(price: number) {
     this.price = price;
+  }
+
+  public setName() {
+    return this.price;
   }
 
   public getPrice() {
     return this.price;
+  }
+
+  public setPrice(price: number) {
+    this.price = price;
   }
 }

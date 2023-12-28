@@ -1,26 +1,29 @@
 import { CrewMemberType } from "../enums";
-import Task from "./task";
 
 export default class CrewMember {
   constructor(
+    private id: string,
     private name: string,
-    private type: CrewMemberType,
-    private tasks: Task[]
+    private type: CrewMemberType
   ) {}
 
-  public setTask(task: Task): void {
-    this.tasks.push(task);
+  public getId(): string {
+    return this.id;
   }
 
-  public getTask(id: string): Task | undefined {
-    return this.tasks.find((task) => task.getId() === id);
+  public getName(): string {
+    return this.name;
   }
 
-  public changeTaskStatus(id: string, status: string): void {
-    const task = this.getTask(id);
+  public setName(newName: string): void {
+    this.name = newName;
+  }
 
-    if (!task) return;
+  public getType(): CrewMemberType {
+    return this.type;
+  }
 
-    task.setStatus(status);
+  public setType(newType: CrewMemberType): void {
+    this.type = newType;
   }
 }

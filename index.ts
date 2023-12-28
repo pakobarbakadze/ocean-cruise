@@ -8,13 +8,18 @@ import Task from "./modules/task";
 import Schedule from "./modules/schedule";
 import Location from "./modules/location";
 import NotificationService from "./services/notification.service";
+import TaskService from "./services/task.service";
 
 const cruiseCompany = new CruiseCompany();
 
-const levaniCaptain = new CrewMember("Levani", CrewMemberType.Captain, []);
-levaniCaptain.setTask(new Task("1", "test", "In Proggres"));
-levaniCaptain.changeTaskStatus("1", "Done");
-console.log(levaniCaptain.getTask("1"));
+const levaniCaptain = new CrewMember("1", "Levani", CrewMemberType.Captain);
+const taskService = new TaskService();
+taskService.setTask(
+  new Task("1", levaniCaptain.getId(), "test", "In progress")
+);
+console.log(taskService.getTask("1"));
+taskService.changeTaskStatus("1", "Done");
+console.log(taskService.getTask("1"));
 
 const ship = new Ship();
 ship.setMember(levaniCaptain);
