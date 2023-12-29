@@ -13,23 +13,6 @@ export default class Traveler {
     this.selectedSchedule = ship.getSchedule();
   }
 
-  // TODO
-  public makePayment(amount: number): void {
-    const cabin = this.ship.getCabinByType(this.selectedCabinType);
-    const calculator = new CalculatorService();
-
-    if (!cabin) return console.log("You haven't delected cabin");
-
-    let cost = calculator.calculateTotalCost(cabin, []);
-
-    if (this.discountCode) cost = cost - cost / 5;
-
-    amount = amount - cost;
-    this.balance = amount;
-
-    console.log(`Paid ${cost}$`);
-  }
-
   public setCabinType(cabinType: CabinType): void {
     const cabin = this.ship.getCabinByType(cabinType);
 
@@ -52,5 +35,13 @@ export default class Traveler {
 
   public getSchedule(): Schedule {
     return this.selectedSchedule;
+  }
+
+  public getSelectedCabinType(): CabinType {
+    return this.selectedCabinType;
+  }
+
+  public getDiscountCode(): string {
+    return this.discountCode ?? "";
   }
 }

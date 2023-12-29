@@ -9,6 +9,7 @@ import Schedule from "./modules/schedule";
 import Location from "./modules/location";
 import NotificationService from "./services/notification.service";
 import TaskService from "./services/task.service";
+import PaymentService from "./services/payment.service";
 
 const cruiseCompany = new CruiseCompany();
 
@@ -48,12 +49,14 @@ cruiseCompany.createSchedule(
 );
 
 const traveler = new Traveler("Giorgi", ship);
-traveler.chooseCabinType(CabinType.Business);
+
+traveler.setCabinType(CabinType.Business);
 ship.setTraveler(traveler);
 console.log(traveler.getSchedule());
-traveler.applyDiscountCode("ABC");
-traveler.makePayment(250);
-console.log(traveler.getBalance());
+traveler.setDiscountCode("ABC");
+
+const paymentService = new PaymentService(calculator);
+paymentService.makePayment(250, ship, traveler);
 
 const notificationService = new NotificationService();
 notificationService.sendNotifications(ship);
